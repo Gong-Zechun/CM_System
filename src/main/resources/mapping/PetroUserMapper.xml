@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.petro.dao.PetroUserMapper" >
+    <select id="selectAllPetroUser" resultType="com.petro.pojo.PetroUser">
+        select * from petrouser
+    </select>
+
+    <select id="selectPetroUserById" parameterType="java.lang.Integer" resultType="com.petro.pojo.PetroUser">
+        select id, userName, password, age
+        from user
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+
+    <insert id="insertPetroUser" parameterType="com.petro.pojo.PetroUser" >
+        insert into petrouser (companyName, contactName,
+        telNum, wxNum, cityName)
+        values (#{companyName,jdbcType=VARCHAR}, #{contactName,jdbcType=VARCHAR}, #{telNum,jdbcType=VARCHAR},
+        #{wxNum,jdbcType=VARCHAR}, #{cityName,jdbcType=VARCHAR})
+    </insert>
+
+    <update id="updatePetroUserById" parameterType="com.petro.pojo.PetroUser" >
+        update petrouser
+        <set>
+            <if test="companyName != null" >
+                companyName = #{companyName,jdbcType=VARCHAR},
+            </if>
+            <if test="contactName != null" >
+                contactName = #{contactName,jdbcType=VARCHAR},
+            </if>
+            <if test="telNum != null" >
+                telNum = #{telNum,jdbcType=VARCHAR},
+            </if>
+            <if test="wxNum != null" >
+                wxNum = #{wxNum, jdbcType=VARCHAR},
+            </if>
+            <if test="cityName != null" >
+                cityName = #{cityName, jdbcType=VARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+
+    <delete id="deleteById" parameterType="java.lang.Integer" >
+        delete from petrouser
+        where id = #{id,jdbcType=INTEGER}
+    </delete>
+</mapper>

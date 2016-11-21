@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>后台登陆系统</title>
+	<meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.min.css"/>
+    <script src="/scripts/jquery/jquery-1.11.3.min.js" type="text/javascript"></script>
+    <style>
+    	body,html{
+    		width:100%;
+    		height:100%;
+    		position:relative;
+    		font-family: 'Microsoft Yahei','Pingfang SC','Helvetica Neue';
+
+    	}
+    	.login{
+    		width:522px;
+    		height:481px;
+    		position:absolute;
+    		left:50%;
+    		top:60%;
+    		transform: translate(-50%,-50%);
+    		-webkit-box-shadow: 0px 0px 2px 2px #ededed;
+    		/*opacity: .5;
+    		filter:alpha(opacity=50); */
+    		background:rgba(255, 255, 255, 0.5);
+    		padding:25px 36px 30px;
+    	}
+    	.title{
+    		width:100%;
+    		height:79px;
+    		text-align: center;
+    		font-size:20px;
+    		font-weight: 700;
+    		line-height:79px;
+    		border-bottom: 1px solid #ededed;
+    		margin-bottom:34px;
+    	}
+    	.login input{
+    		border:none;
+    		width:100%;
+    		height:40px;
+    		border:1px solid #ededed;
+    		margin-bottom:40px;
+    		padding-left:20px;
+    	}
+    </style>
+</head>
+<body>	
+<div id="bg">
+    <img class="bg" id="bg_01" src="/image/02.jpg">
+    <img class="bg" id="bg_02" src="/image/03.jpg">
+    <img class="bg" id="bg_03" src="/image/06.jpg">
+    <!-- <div class="bg" id="bg_01">
+    <div class="bg" id="bg_02">
+    <div class="bg" id="bg_03"> -->
+    
+    
+    
+    
+</div>
+<div id="header" class="container">
+    <div id="header_logo" ></div>
+    <div id="header_nav">
+       <ul id="header_menu_list">
+           <li class="header_menu_list header_menu_list_checked header_menu_list_fi"><a href="">首页</a></li>
+           <li class="header_menu_list"><span></span><a href="">音乐</a></li>
+           <li class="header_menu_list"><span></span><a href="">图片</a></li>
+           <li class="header_menu_list"><span></span><a href="">文章</a></li>
+           <li class="header_menu_list"><span></span><a href="">影片</a></li>
+           <li class="header_menu_list"><span></span><a href="">关于</a></li>
+           <div class="clear"></div>
+       </ul>
+       <div id="header_menu_details">
+            <div id="header_menu_details_box">
+                <div id="header_menu_details_mask">
+                    <div class="header_detail_container">
+                        <div class="header_detail_box">
+                            <div class="header_detail_img">
+                                <div class="header_detail_imgCover"></div>
+                            </div>
+                            <p class="header_detail_title"><img src="/image/nav_menu_arrow.png" alt="">示例文字</p>
+                        </div>
+                        <div class="header_detail_box">
+                            <div class="header_detail_img">
+                                <div class="header_detail_imgCover"></div>
+                            </div>
+                            <p class="header_detail_title"><img src="/image/nav_menu_arrow.png" alt="">示例文字</p>
+                        </div>
+                        <div class="header_detail_box">
+                            <div class="header_detail_img">
+                                <div class="header_detail_imgCover"></div>
+                            </div>
+                            <p class="header_detail_title"><img src="/image/nav_menu_arrow.png" alt="">示例文字</p>
+                        </div>
+                        <div class="header_detail_box">
+                            <div class="header_detail_img">
+                                <div class="header_detail_imgCover"></div>
+                            </div>
+                            <p class="header_detail_title"><img src="/image/nav_menu_arrow.png" alt="">示例文字</p>
+                        </div>
+                        <div class="header_detail_box">
+                            <div class="header_detail_img">
+                                <div class="header_detail_imgCover"></div>
+                            </div>
+                            <p class="header_detail_title"><img src="/image/nav_menu_arrow.png" alt="">示例文字</p>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="header_detail_container">
+                        <div class="header_detail_box">
+                            <div class="header_detail_img">
+                                <div class="header_detail_imgCover"></div>
+                            </div>
+                            <p class="header_detail_title"><img src="/image/nav_menu_arrow.png" alt="">示例文字</p>
+                        </div>
+                        <div class="header_detail_box">
+                            <div class="header_detail_img">
+                                <div class="header_detail_imgCover"></div>
+                            </div>
+                            <p class="header_detail_title"><img src="/image/nav_menu_arrow.png" alt="">示例文字</p>
+                        </div>
+                        <div class="header_detail_box">
+                            <div class="header_detail_img">
+                                <div class="header_detail_imgCover"></div>
+                            </div>
+                            <p class="header_detail_title"><img src="/image/nav_menu_arrow.png" alt="">示例文字</p>
+                        </div>
+                        <div class="header_detail_box">
+                            <div class="header_detail_img">
+                                <div class="header_detail_imgCover"></div>
+                            </div>
+                            <p class="header_detail_title"><img src="/image/nav_menu_arrow.png" alt="">示例文字</p>
+                        </div>
+                        <div class="header_detail_box">
+                            <div class="header_detail_img">
+                                <div class="header_detail_imgCover"></div>
+                            </div>
+                            <p class="header_detail_title"><img src="/image/nav_menu_arrow.png" alt="">示例文字</p>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="header_detail_container">
+                        <div class="header_detail_box">
+                            <div class="header_detail_img">
+                                <div class="header_detail_imgCover"></div>
+                            </div>
+                            <p class="header_detail_title"><img src="/image/nav_menu_arrow.png" alt="">示例文字</p>
+                        </div>
+                        <div class="header_detail_box">
+                            <div class="header_detail_img">
+                                <div class="header_detail_imgCover"></div>
+                            </div>
+                            <p class="header_detail_title"><img src="/image/nav_menu_arrow.png" alt="">示例文字</p>
+                        </div>
+                        <div class="header_detail_box">
+                            <div class="header_detail_img">
+                                <div class="header_detail_imgCover"></div>
+                            </div>
+                            <p class="header_detail_title"><img src="/image/nav_menu_arrow.png" alt="">示例文字</p>
+                        </div>
+                        <div class="header_detail_box">
+                            <div class="header_detail_img">
+                                <div class="header_detail_imgCover"></div>
+                            </div>
+                            <p class="header_detail_title"><img src="/image/nav_menu_arrow.png" alt="">示例文字</p>
+                        </div>
+                        <div class="header_detail_box">
+                            <div class="header_detail_img">
+                                <div class="header_detail_imgCover"></div>
+                            </div>
+                            <p class="header_detail_title"><img src="/image/nav_menu_arrow.png" alt="">示例文字</p>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="header_detail_container">
+                        <div class="header_detail_box">
+                            <div class="header_detail_img">
+                                <div class="header_detail_imgCover"></div>
+                            </div>
+                            <p class="header_detail_title"><img src="/image/nav_menu_arrow.png" alt="">示例文字</p>
+                        </div>
+                        <div class="header_detail_box">
+                            <div class="header_detail_img">
+                                <div class="header_detail_imgCover"></div>
+                            </div>
+                            <p class="header_detail_title"><img src="/image/nav_menu_arrow.png" alt="">示例文字</p>
+                        </div>
+                        <div class="header_detail_box">
+                            <div class="header_detail_img">
+                                <div class="header_detail_imgCover"></div>
+                            </div>
+                            <p class="header_detail_title"><img src="/image/nav_menu_arrow.png" alt="">示例文字</p>
+                        </div>
+                        <div class="header_detail_box">
+                            <div class="header_detail_img">
+                                <div class="header_detail_imgCover"></div>
+                            </div>
+                            <p class="header_detail_title"><img src="/image/nav_menu_arrow.png" alt="">示例文字</p>
+                        </div>
+                        <div class="header_detail_box">
+                            <div class="header_detail_img">
+                                <div class="header_detail_imgCover"></div>
+                            </div>
+                            <p class="header_detail_title"><img src="/image/nav_menu_arrow.png" alt="">示例文字</p>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="header_detail_container">
+                        <div class="header_detail_box">
+                            <div class="header_detail_img">
+                                <div class="header_detail_imgCover"></div>
+                            </div>
+                            <p class="header_detail_title"><img src="/image/nav_menu_arrow.png" alt="">示例文字</p>
+                        </div>
+                        <div class="header_detail_box">
+                            <div class="header_detail_img">
+                                <div class="header_detail_imgCover"></div>
+                            </div>
+                            <p class="header_detail_title"><img src="/image/nav_menu_arrow.png" alt="">示例文字</p>
+                        </div>
+                        <div class="header_detail_box">
+                            <div class="header_detail_img">
+                                <div class="header_detail_imgCover"></div>
+                            </div>
+                            <p class="header_detail_title"><img src="/image/nav_menu_arrow.png" alt="">示例文字</p>
+                        </div>
+                        <div class="header_detail_box">
+                            <div class="header_detail_img">
+                                <div class="header_detail_imgCover"></div>
+                            </div>
+                            <p class="header_detail_title"><img src="/image/nav_menu_arrow.png" alt="">示例文字</p>
+                        </div>
+                        <div class="header_detail_box">
+                            <div class="header_detail_img">
+                                <div class="header_detail_imgCover"></div>
+                            </div>
+                            <p class="header_detail_title"><img src="/image/nav_menu_arrow.png" alt="">示例文字</p>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="header_detail_container">
+                        <div class="header_detail_box">
+                            <div class="header_detail_img">
+                                <div class="header_detail_imgCover"></div>
+                            </div>
+                            <p class="header_detail_title"><img src="/image/nav_menu_arrow.png" alt="">示例文字</p>
+                        </div>
+                        <div class="header_detail_box">
+                            <div class="header_detail_img">
+                                <div class="header_detail_imgCover"></div>
+                            </div>
+                            <p class="header_detail_title"><img src="/image/nav_menu_arrow.png" alt="">示例文字</p>
+                        </div>
+                        <div class="header_detail_box">
+                            <div class="header_detail_img">
+                                <div class="header_detail_imgCover"></div>
+                            </div>
+                            <p class="header_detail_title"><img src="/image/nav_menu_arrow.png" alt="">示例文字</p>
+                        </div>
+                        <div class="header_detail_box">
+                            <div class="header_detail_img">
+                                <div class="header_detail_imgCover"></div>
+                            </div>
+                            <p class="header_detail_title"><img src="/image/nav_menu_arrow.png" alt="">示例文字</p>
+                        </div>
+                        <div class="header_detail_box">
+                            <div class="header_detail_img">
+                                <div class="header_detail_imgCover"></div>
+                            </div>
+                            <p class="header_detail_title"><img src="/image/nav_menu_arrow.png" alt="">示例文字</p>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+       </div>
+       </div>
+    </div>
+    <div id="header_search">
+        <input class="header_search_text" type="text" name="" id="header_search_text" value="输入搜索内容">
+        <input class="header_search_subm" type="submit" value="">
+    </div>
+    <div class="clear"></div>
+</div>
+
+
+	<div class="login">
+    	<p class="title">登录</p>
+    	<input id="userName" type="text" placeholder="请输入用户名">
+    	<br>
+    	<input id="password" type="text"  placeholder="请输入密码"/ class="psword">
+    	<button id="login" type="button" class="btn btn-danger btn-block" style="margin-top:40px;">登录</button>
+    </div>
+
+<script src="/scripts/js/common.js" type="text/javascript"></script>
+<script>
+	$(function(){
+		$('.psword').on('click',function(){
+			$(this).attr({"type":"password"})
+		})
+		
+	})
+
+    $("#login").click(function() {
+        var userName = $("#userName").val();
+        var password = $("#password").val();
+        console.log(userName);
+        console.log(password);
+        if(userName != "" && password != "") {
+            $.ajax({
+                type: "POST",
+                url: "/petro/main",
+                dataType: "json",
+                async: false,//同步
+                data: {
+                    "userName": userName,
+                    "password": password
+                },
+                success: function(data) {
+                    console.log(data);
+                    if(parseInt(data) == 1) {
+                        window.location.href="/petro/petroUserManage";
+                    }else{
+                        alert("登录失败，没有此用户");
+                    }
+                },
+                error: function(e) { //服务器响应失败处理函数
+                    alert("error!!!");
+                    console.log(e);
+                }
+            });
+
+        }else{
+            alert("请输入用户名和密码！");
+        }
+
+    });
+	
+</script>
+</body>
+
+</html>

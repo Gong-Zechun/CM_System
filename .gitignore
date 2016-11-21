@@ -43,3 +43,6 @@ Temporary Items
 .apdisk
 target/cm_system/WEB-INF/classes/coinDataSource.properties
 *.class
+classes
+target
+.idea

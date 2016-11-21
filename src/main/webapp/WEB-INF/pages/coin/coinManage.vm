@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EXO-VM用户管理页面</title>
+    <title>虚拟货币</title>
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
@@ -83,16 +83,16 @@
 
     <h4 class="alert_info">Welcome to the free MediaLoot admin panel template, this could be an informative message.</h4>
 
-    <div class="checkbox">
-        请选择选择数据来源？<br /><br />
+    <article class="module width_3_quarter checkbox">
+        请选择数据来源!<br /><br />
         <label><input name="coinSource" type="checkbox" value="0" />BTCC</label>
         <label><input name="coinSource" type="checkbox" value="1" />火币网</label>
         <label><input name="coinSource" type="checkbox" value="2" />OKCoin币行</label>
         <label><input name="coinSource" type="checkbox" value="3" />中国比特币</label>
         <label><input name="coinSource" type="checkbox" value="4" />Coinbase</label>
         <br/>
-        <a onclick="initTable()">按钮</a>
-    </div>
+        <a type="button" onclick="initTable()" style="cursor:pointer">查询</a>
+    </article>
 
 
     <article class="module width_3_quarter">
@@ -125,25 +125,8 @@
                     </thead>
                     <tbody>
                         <!--内容填充-->
-##                        <tr>
-##                            <td></td>
-##                            <td></td>
-##                            <td></td>
-##                            <td></td>
-##                            <td></td>
-##                            <td></td>
-##                            <td></td>
-##                            <td></td>
-##                            <td></td>
-##                            <td></td>
-##                            <td></td>
-##                            <td></td>
-##                            <td></td>
-##                        </tr>
-##                        <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-##                        <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-##                        <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-##                        <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                        <!--1、根据用户的数据来源选择，生成tr和td标签-->
+                        <!--2、在tr和td中填充数据：数据更新时，table不跳动，只有数据变化-->
                     </tbody>
                 </table>
             </div><!-- end of #tab1 -->
@@ -207,9 +190,14 @@
         $('.column').equalHeight();
     });
 
-    //初试化table
+    /*
+    * 初试化table
+    * */
+    //定义全局定时器timer
+    var timer = null;
     function initTable() {
-        console.log("init");
+        //清除定时器，结束之前的线程
+        clearInterval(timer);
         $("#userInfoTable tbody").html("");
         var value = "";
         //trNum:table的行数
@@ -243,7 +231,7 @@
         //加载数据--做个非空判断，免得后台报空指针异常
         if(value != null && value != "") {
             getCoinInfo(value);
-            setInterval(function() { getCoinInfo(value); }, 3000);
+            timer = setInterval(function() { getCoinInfo(value); }, 3000);
         }
     }
 
@@ -253,6 +241,7 @@
             type: "POST",
             url: "/coin/data",
             dataType: "json",
+            //async: false,
             data: {
                 "coinDataParam" : value,
             },

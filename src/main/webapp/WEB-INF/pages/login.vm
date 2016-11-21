@@ -319,11 +319,11 @@
                     "password": password
                 },
                 success: function(data) {
-                    console.log(data);
                     if(parseInt(data) == 1) {
                         window.location.href="/petro/petroUserManage";
                     }else{
-                        alert("登录失败，没有此用户");
+                        //这里可以针对“没有此用户”或者“密码错误”两种情况做区分
+                        alert("登录失败，没有此用户或者密码错误");
                     }
                 },
                 error: function(e) { //服务器响应失败处理函数

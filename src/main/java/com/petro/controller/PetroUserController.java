@@ -54,11 +54,12 @@ public class PetroUserController {
 
     @RequestMapping("main")
     @ResponseBody
-    public String selectAllPetroUser(String userName, String password) {
+    public String selectAllPetroUser(String userName, String password, HttpServletRequest request) {
         try{
             Map<String, String> userMap = new HashMap<String, String>();
             userMap.put("userName", userName);
             userMap.put("password", password);
+            request.getSession().setAttribute("userName", userName);
             int resultFlag = this.adminUserService.selectAdminUser(userMap);
             return StringUtil.toJSONString(resultFlag);
         }catch(Exception e){
@@ -68,6 +69,11 @@ public class PetroUserController {
         return null;
     }
 
+    /**
+     * 返回petroUserManage.vm页面
+     * @param model model添加user数据
+     * @return
+     */
     @RequestMapping("petroUserManage")
     public String index(Model model) {
         try{
@@ -78,7 +84,7 @@ public class PetroUserController {
             e.printStackTrace();
             log.error(e.getMessage(), e);
         }
-        return "null";
+        return null;
     }
 
 

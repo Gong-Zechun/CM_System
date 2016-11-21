@@ -46,3 +46,4 @@ target/cm_system/WEB-INF/classes/coinDataSource.properties
 classes
 target
 .idea
+src/main/resources/jdbc.properties

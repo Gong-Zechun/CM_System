@@ -74,24 +74,24 @@
     <mvc:default-servlet-handler/>
 
     <!-- 拦截器 -->
-    <mvc:interceptors>
-        <mvc:interceptor>
-            <!-- 拦截全部地址 -->
+    <!--<mvc:interceptors>-->
+        <!--<mvc:interceptor>-->
+            <!--&lt;!&ndash; 拦截全部地址 &ndash;&gt;-->
             <!--<mvc:mapping path="/**"/>-->
-            <mvc:mapping path="/pages/coin"/>
-            <!-- 登录拦截类 -->
-            <bean id="loginInterceptor" class="com.petro.login.LoginInterceptor">
-            </bean>
-        </mvc:interceptor>
-    </mvc:interceptors>
+            <!--&lt;!&ndash;<mvc:mapping path="/WEB-INF/pages/**"/>&ndash;&gt;-->
+            <!--<mvc:exclude-mapping path="/WEB-INF/pages/login"/>-->
+            <!--&lt;!&ndash; 登录拦截类 &ndash;&gt;-->
+            <!--<bean id="loginInterceptor" class="com.petro.login.LoginInterceptor"></bean>-->
+        <!--</mvc:interceptor>-->
+    <!--</mvc:interceptors>-->
 
-    <!-- 异常 -->
-    <bean id="exceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
-        <property name="exceptionMappings">
-            <props>
-                <!--登录失败异常类-->
-                <prop key="com.sgcc.uds.fs.config.web.interceptor.UnLoginException">redirect:/login</prop>
-            </props>
-        </property>
-    </bean>
+    <!--&lt;!&ndash; 异常 &ndash;&gt;-->
+    <!--<bean id="exceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">-->
+        <!--<property name="exceptionMappings">-->
+            <!--<props>-->
+                <!--&lt;!&ndash;登录失败异常类&ndash;&gt;-->
+                <!--<prop key="com.petro.UnLoginException">redirect:/login</prop>-->
+            <!--</props>-->
+        <!--</property>-->
+    <!--</bean>-->
 </beans>

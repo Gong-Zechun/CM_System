@@ -241,7 +241,7 @@
             type: "POST",
             url: "/coin/data",
             dataType: "json",
-            //async: false,
+            async: false,
             data: {
                 "coinDataParam" : value,
             },

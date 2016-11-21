@@ -11,7 +11,7 @@ import java.util.Properties;
  */
 public class PropertiesReaderUtil {
     /**
-     * properties文件读取
+     * properties文件读取（读取的文件路径在resources文件夹下）
      * @param fileName
      * @return
      * @throws IOException

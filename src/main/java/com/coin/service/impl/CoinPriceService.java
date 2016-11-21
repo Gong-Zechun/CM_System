@@ -42,7 +42,7 @@ public class CoinPriceService implements ICoinPriceService{
     }
 
     public List<String> queryFrom3Party(String btc123Url, List<String> paramList) {
-        List<String> resultList = new ArrayList<String>();
+        List<String> resultList = new ArrayList<>();
         for(String meta : paramList) {
             StringBuilder urlSb = new StringBuilder(btc123Url + meta);
             String result = HttpRequest.sendGet(urlSb.toString());

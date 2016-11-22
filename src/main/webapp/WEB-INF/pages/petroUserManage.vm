@@ -194,7 +194,7 @@
             var userId = $(msg).parents("tr").find("input").val();
             $.ajax({
                 type: "POST",
-                url: "/petrouser/deletePetroUserById",
+                url: "/petro/deletePetroUserById",
                 dataType: "json",
                 data: {
                     "userId" : userId
@@ -230,11 +230,13 @@
         var telNum = $("#telNumInput").val();
         var wxNum = $("#wxNumInput").val();
         var cityName = $("#cityNameInput").val();
+        console.log(cityName);
+        console.log(userId);
         //根据userId存在与否判断是“编辑-提交”还是“添加-提交”
         if(userId != null && userId != "") {
             $.ajax({
                 type: "POST",
-                url: "/petrouser/updatePetroUserInfoById",
+                url: "/petro/updatePetroUserInfoById",
                 dataType: "json",
                 data: {
                     "userId": userId,
@@ -260,7 +262,7 @@
         }else {
             $.ajax({
                 type: "POST",
-                url: "/petrouser/addNewPetroUser",
+                url: "/petro/addNewPetroUser",
                 dataType: "json",
                 data: {
                     "companyName": companyName,

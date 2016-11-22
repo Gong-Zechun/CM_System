@@ -1,12 +1,9 @@
 package com.petro.controller;
 
-import com.common.HttpRequest;
 import com.petro.service.IAdminUserService;
-import com.util.DateUtil;
 import com.util.StringUtil;
 import com.petro.pojo.PetroUser;
 import com.petro.service.IPetroUserService;
-import org.omg.CORBA.Request;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -55,6 +52,8 @@ public class PetroUserController {
     @RequestMapping("main")
     @ResponseBody
     public String selectAllPetroUser(String userName, String password, HttpServletRequest request) {
+        log.info("info main");
+        log.debug("debug main");
         try{
             Map<String, String> userMap = new HashMap<String, String>();
             userMap.put("userName", userName);
@@ -66,6 +65,8 @@ public class PetroUserController {
             e.printStackTrace();
             log.error(e.getMessage(), e);
         }
+        log.info("info main");
+        log.debug("debug main");
         return null;
     }
 
@@ -76,6 +77,8 @@ public class PetroUserController {
      */
     @RequestMapping("petroUserManage")
     public String index(Model model) {
+        log.info("info petroUserManage");
+        log.debug("debug petroUserManage");
         try{
             List<PetroUser> petroUserList = petroUserService.selectAllPetroUser();
             model.addAttribute("userList", petroUserList);
@@ -84,6 +87,8 @@ public class PetroUserController {
             e.printStackTrace();
             log.error(e.getMessage(), e);
         }
+        log.info("info petroUserManage");
+        log.debug("debug petroUserManage");
         return null;
     }
 

@@ -1,15 +1,41 @@
 $(function(){
 	$('.btn-submit').on('click',function(){
-		var nameText=$('.ipt1').val()
-		var contactText=$('.ipt2').val()
-		var telText=$('.ipt3').val()
-		var wxText=$('.ipt4').val()
-		var cityText=$('.ipt5').val()
-		if(nameText==''||telText==''||wxText==''||cityText==''||contactText==''){
+		var companyName=$('.ipt1').val();
+		var contactName=$('.ipt2').val();
+		var telNum=$('.ipt3').val();
+		var wxNum=$('.ipt4').val();
+		var cityName=$('.ipt5').val();
+		if(companyName==''||contactName==''||telNum==''||wxNum==''||cityName==''){
 			$('.shade').css({'display':'block'})
 			$('.shade-box ul li').eq(0).css({'display':'block'}).stop().siblings().css({'display':'none'});
 			$('.shade-box').css({'display':'block'});
 		}else{
+            $.ajax({
+                type: "POST",
+                url: "/petro/addNewPetroUser",
+                dataType: "json",
+                data: {
+                    "companyName" : companyName,
+                    "contactName" : contactName,
+                    "telNum" : telNum,
+                    "wxNum" : wxNum,
+                    "cityName" : cityName
+                },
+                success: function(data) {
+                    console.log(data);
+                    if(data == 1){
+                        $("#btnsure").on("click", function() {
+                            window.location.reload();
+                        });
+                    }else{
+                        alert("wrong data");
+                    }
+                },
+                error: function(e) { //服务器响应失败处理函数
+                    alert("用户信息提交失败");
+                    console.log(e);
+                }
+            });
 			$('.shade').css({'display':'block'})
 			$('.shade-box ul li').eq(1).css({'display':'block'}).stop().siblings().css({'display':'none'})
 			$('.shade-box').css({'display':'block'});

@@ -131,29 +131,6 @@
                 </table>
             </div><!-- end of #tab1 -->
 
-            <!--modal模态框-->
-            <div class="modal fade" id="userInfoModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                            <h4 class="modal-title" id="myModalLabel">用户信息编辑</h4>
-                        </div>
-                        <div class="modal-body">
-                            <span class="help-block">用户姓名：<input id="nameInput" type="text"/></span>
-                            <span class="help-block">用户年龄：<input id="ageInput" type="text"/></span>
-                            <span class="help-block">用户邮箱：<input id="emailInput" type="text"/></span>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-                            <button type="button" id="submitBtn" class="btn btn-primary">提交</button>
-                        </div>
-                    </div><!-- /.modal-content -->
-                </div><!-- /.modal -->
-            </div>
-
-
-
         </div><!-- end of .tab_container -->
 
     </article><!-- end of content manager article -->

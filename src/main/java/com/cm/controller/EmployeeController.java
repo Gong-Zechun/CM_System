@@ -27,7 +27,7 @@ import java.util.List;
 @Controller
 @RequestMapping("employee")
 public class EmployeeController {
-    private static final Logger log = LoggerFactory.getLogger(UserController.class);
+    private static final Logger log = LoggerFactory.getLogger(EmployeeController.class);
 
     @Resource
     private IEmployeeService employeeService;

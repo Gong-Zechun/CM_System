@@ -3,7 +3,6 @@ package com.cm.service.impl;
 import com.cm.dao.EmployeeMapper;
 import com.cm.pojo.Employee;
 import com.cm.service.IEmployeeService;
-import com.cm.service.IUserService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

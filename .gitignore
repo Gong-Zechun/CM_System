@@ -46,6 +46,5 @@ target/cm_system/WEB-INF/classes/coinDataSource.properties
 classes
 target
 .idea
-src/main/resources/jdbc.properties
-src/main/resources/jdbc.properties
+jdbc.properties
 src/main/webapp/WEB-INF/lib/slf4j-log4j12-1.7.21.jar

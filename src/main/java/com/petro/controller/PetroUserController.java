@@ -1,9 +1,9 @@
 package com.petro.controller;
 
 import com.petro.service.IAdminUserService;
-import com.util.StringUtil;
 import com.petro.pojo.PetroUser;
 import com.petro.service.IPetroUserService;
+import com.util.JsonUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -30,13 +29,15 @@ public class PetroUserController {
 
     private static final Logger log = LoggerFactory.getLogger(PetroUserController.class);
 
+    private static final Map<String, String> map = new HashMap();
+
     @Resource
     private IPetroUserService petroUserService;
     @Resource
     private IAdminUserService adminUserService;
 
     /**
-     * Petro系统-用户登录login页面
+     * 返回petrochemical.vm前端页面
      * @return
      */
     @RequestMapping("petroPage")
@@ -44,6 +45,10 @@ public class PetroUserController {
         return "petrochemical";
     }
 
+    /**
+     * 返回login.vm页面
+     * @return
+     */
     @RequestMapping("login")
     public String login() {
         return "login";
@@ -52,21 +57,17 @@ public class PetroUserController {
     @RequestMapping("main")
     @ResponseBody
     public String selectAllPetroUser(String userName, String password, HttpServletRequest request) {
-        log.info("info main");
-        log.debug("debug main");
         try{
             Map<String, String> userMap = new HashMap<String, String>();
             userMap.put("userName", userName);
             userMap.put("password", password);
             request.getSession().setAttribute("userName", userName);
             int resultFlag = this.adminUserService.selectAdminUser(userMap);
-            return StringUtil.toJSONString(resultFlag);
+            return JsonUtil.toJsonStr(resultFlag);
         }catch(Exception e){
             e.printStackTrace();
             log.error(e.getMessage(), e);
         }
-        log.info("info main");
-        log.debug("debug main");
         return null;
     }
 
@@ -77,8 +78,6 @@ public class PetroUserController {
      */
     @RequestMapping("petroUserManage")
     public String index(Model model) {
-        log.info("info petroUserManage");
-        log.debug("debug petroUserManage");
         try{
             List<PetroUser> petroUserList = petroUserService.selectAllPetroUser();
             model.addAttribute("userList", petroUserList);
@@ -87,8 +86,6 @@ public class PetroUserController {
             e.printStackTrace();
             log.error(e.getMessage(), e);
         }
-        log.info("info petroUserManage");
-        log.debug("debug petroUserManage");
         return null;
     }
 
@@ -115,7 +112,7 @@ public class PetroUserController {
             petroUser.setWxNum(wxNum);
             petroUser.setCityName(cityName);
             int resultFlag = petroUserService.updatePetroUserById(petroUser);
-            return StringUtil.toJSONString(resultFlag);
+            return JsonUtil.toJsonStr(resultFlag);
         }catch(Exception e) {
             e.printStackTrace();
             log.error(e.getMessage(), e);
@@ -143,7 +140,7 @@ public class PetroUserController {
             petroUser.setWxNum(wxNum);
             petroUser.setCityName(cityName);
             int resultflag = petroUserService.insertPetroUser(petroUser);
-            return StringUtil.toJSONString(resultflag);
+            return JsonUtil.toJsonStr(resultflag);
         }catch(Exception e) {
             e.printStackTrace();
             log.error(e.getMessage(), e);
@@ -151,16 +148,27 @@ public class PetroUserController {
         return null;
     }
 
+    /**
+     * 根据用户id删除对应用户
+     * @param userId 用户id
+     * @return 数据库执行的返回结果
+     */
     @RequestMapping("deletePetroUserById")
     @ResponseBody
     public String deleteById(int userId) {
         try{
             int resultflag = petroUserService.deleteById(userId);
-            return StringUtil.toJSONString(resultflag);
+            return JsonUtil.toJsonStr(resultflag);
         }catch(Exception e) {
             e.printStackTrace();
             log.error(e.getMessage(), e);
         }
         return null;
+    }
+
+    public static void main(String[] args) {
+        map.put("11", "123");
+        map.put("221", "272");
+        System.out.println(map);
     }
 }
